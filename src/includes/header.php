@@ -1,6 +1,6 @@
 <?php
 if (empty($_SESSION['active'])) {
-    // header('Location: ../');
+    header('Location: ../');
 }
 ?>
 <!DOCTYPE html>
@@ -9,7 +9,15 @@ if (empty($_SESSION['active'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistema de restaurante</title>
+    <title>POS</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://icon-library.com/images/pos-system-icon/pos-system-icon-0.jpg">
+
+
+
+ 
+
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -51,7 +59,7 @@ if (empty($_SESSION['active'])) {
             <!-- Brand Logo -->
             <a href="dashboard.php" class="brand-link">
                 <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Admin</span>
+                <span class="brand-text font-weight-light"><?php echo $_SESSION['names']; ?></span>
             </a>
 
         </nav>
@@ -63,7 +71,9 @@ if (empty($_SESSION['active'])) {
             <a href="dashboard.php" class="brand-link">
                 <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">RestBAR</span>
+
             </a>
+
             <div class="sidebar">
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -102,7 +112,7 @@ if (empty($_SESSION['active'])) {
 
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="logout.php" class="nav-link">
                                 <i class="nav-icon fas fa-power-off"></i>
                                 <p>
                                     Salir
