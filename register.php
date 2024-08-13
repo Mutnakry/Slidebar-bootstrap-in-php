@@ -85,6 +85,7 @@ if (!empty($_POST)) {
                         <select name="rol" id="rol" class="form-control">
                             <option value="user">User</option>
                             <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
                         </select>
                     </div>
                     <div class="row">
