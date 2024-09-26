@@ -56,16 +56,11 @@ $manager_role = 'manager';
                     </a>
                 </li>
             </ul>
-            <!-- Brand Logo -->
-            <!-- <a href="dashboard.php" class="brand-link">
-                <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light"><?php echo $_SESSION['names']; ?></span>
-            </a> -->
 
             <div class="dropdown">
                 <button type="button" class="border-0 navbar-dark navbar-dark" data-toggle="dropdown">
                     <a href="dashboard.php" class="brand-link">
-                        <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                        <img src="https://pointofsalepos.com/cdn/shop/files/logo_pos1_836b5509-7b49-4372-87f4-5436426ad730_1200x1200.png?v=1631927547" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                         <span class="brand-text font-weight-light"><?php echo $_SESSION['names']; ?></span>
                     </a>
                 </button>
@@ -84,7 +79,8 @@ $manager_role = 'manager';
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="dashboard.php" class="brand-link">
-                <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <!-- <img src="../assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+                <img src="https://pointofsalepos.com/cdn/shop/files/logo_pos1_836b5509-7b49-4372-87f4-5436426ad730_1200x1200.png?v=1631927547" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">RestBAR</span>
             </a>
 
@@ -101,14 +97,13 @@ $manager_role = 'manager';
                             </a>
                         </li> -->
                         <?php if ($user !== $user_role): ?>
-                            <li class="nav-item">
-                                <a href="dashboard.php" class="nav-link">
-                                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                                    <p>Dashboard</p>
+                            <li class="nav-item <?php echo $currentPage === 'dashboard.php' ? 'bg-danger rounded' : ''; ?>">
+                                <a href="dashboard.php" class="nav-link <?php echo $currentPage === 'product.php' ? 'text-white' : ''; ?>">
+                                    <i class="nav-icon fas fa-tags"></i>
+                                    <p>dashboard</p>
                                 </a>
                             </li>
                         <?php endif; ?>
-
                         <?php if ($user !== $admin_role): ?>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -134,40 +129,189 @@ $manager_role = 'manager';
                                 </ul>
                             </li>
                         <?php endif; ?>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-power-off"></i>
-                                <p>
-                                    Salir
-                                </p>
-                            </a>
-                        </li>
                         <li class="nav-item <?php echo $currentPage === 'category.php' ? 'bg-danger rounded' : ''; ?>">
                             <a href="category.php" class="nav-link <?php echo $currentPage === 'product.php' ? 'text-white' : ''; ?>">
-                            <i class="nav-icon fas fa-list"></i> 
-                                <p>ប្រភេទ</p>
+                                <i class="nav-icon fas fa-list"></i>
+                                <p>Category</p>
                             </a>
                         </li>
-
-
                         <?php if ($user !== $user_role): ?>
-                            <li class="nav-item <?php echo $currentPage === 'category.php' ? 'bg-danger rounded' : ''; ?>">
-                                <a href="category.php" class="nav-link <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                            <li class="nav-item <?php echo $currentPage === 'product.php' ? 'bg-danger rounded' : ''; ?>">
+                                <a href="product.php" class="nav-link <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
                                     <i class="nav-icon fas fa-tags"></i>
-                                    <p>Category</p>
+                                    <p>Item</p>
                                 </a>
                             </li>
                         <?php endif; ?>
 
-                        <li class="nav-item <?php echo $currentPage === 'dashboard.php' ? 'bg-danger rounded' : ''; ?>">
-                            <a href="dashboard.php" class="nav-link <?php echo $currentPage === 'product.php' ? 'text-white' : ''; ?>">
+                        <li class="nav-item <?php echo $currentPage === 'sale.php' ? 'bg-danger rounded' : ''; ?>">
+                            <a href="sale.php" class="nav-link <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
                                 <i class="nav-icon fas fa-tags"></i>
-                                <p>dashboard</p>
+                                <p>Sale</p>
                             </a>
+                        </li>
+                        <li class="nav-item <?php echo $currentPage === 'purchase.php' ? 'bg-danger rounded' : ''; ?>">
+                            <a href="purchase.php" class="nav-link <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                <i class="nav-icon fas fa-tags"></i>
+                                <p>Purchase</p>
+                            </a>
+                        </li>
+                        <li class="nav-item <?php echo $currentPage === 'productbetween.php' ? 'bg-danger rounded' : ''; ?>">
+                            <a href="productbetween.php" class="nav-link <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                <i class="nav-icon fas fa-tags"></i>
+                                <p>invoice</p>
+                            </a>
+                        </li>
+                        <li class="nav-item <?php echo $currentPage === '/excel.php' ? 'bg-danger rounded' : ''; ?>">
+                            <a href="excel.php" class="nav-link <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                <i class="nav-icon fas fa-tags"></i>
+                                <p>excel</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-pizza-slice"></i>
+                                <p>
+                                    របាយការណ៍
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <!-- Example of active check -->
+                                <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                    <a href="category.php" class="nav-link <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Category</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            របាយការណ៍ទំនិញ
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <!-- Example of active check -->
+                                        <li class="nav-item  <?php echo ($currentPage === 'invoice/product.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="invoice/product.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Product</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            របាយការណ៍កម៉ុង់(purchase)
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <!-- Example of active check -->
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            របាយការណ៍អតិជន(customer)
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <!-- Example of active check -->
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        < <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            របាយការណ៍លក់
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <!-- Example of active check -->
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  <?php echo ($currentPage === 'category.php') ? 'bg-danger rounded' : ''; ?>">
+                                            <a href="category.php" class="nav-link ml-4 <?php echo $currentPage === 'category.php' ? 'text-white' : ''; ?>">
+                                            <i class="far fa-dot-circle nav-icon text-primary"></i>
+                                                <p>Category</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
                         </li>
 
                     </ul>
+                   
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
